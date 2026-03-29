@@ -1,0 +1,473 @@
+
+/* ========================= */
+/* 🔥 GLOBAL */
+/* ========================= */
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========================= */
+/* 🔥 NAVBAR */
+/* ========================= */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 15px;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 15px;
+    text-decoration: none;
+    position: relative;
+    font-size: 15px;
+}
+
+/* underline hover */
+nav a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #00eaff;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ========================= */
+/* 🔥 HEADER */
+/* ========================= */
+header {
+    position: relative;
+    background: url("images/gym10.jpg") center/cover no-repeat;
+    padding: 180px 20px;
+    overflow: hidden;
+}
+
+/* dark overlay */
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.9)
+    );
+}
+
+header * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ========================= */
+/* 🔥 GLOW TEXT (PREMIUM) */
+/* ========================= */
+.glow-text {
+    font-size: 55px;
+    color: #bdf6ff;
+    text-shadow: 
+        0 0 8px #00eaff,
+        0 0 18px rgba(0,234,255,0.5);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 8px #00eaff; }
+    50% { text-shadow: 0 0 25px #00eaff; }
+    100% { text-shadow: 0 0 8px #00eaff; }
+}
+
+/* ========================= */
+/* 🔥 SECTION */
+/* ========================= */
+section {
+    margin: 70px auto;
+    max-width: 1100px;
+}
+
+/* ========================= */
+/* 🔥 HEADINGS */
+/* ========================= */
+h2 {
+    color: #aeefff;
+    text-shadow: 0 0 10px rgba(0,234,255,0.5);
+}
+
+/* ========================= */
+/* 🔥 ABOUT */
+/* ========================= */
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* ========================= */
+/* 🔥 BUTTON (PREMIUM GLOW) */
+/* ========================= */
+.btn {
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #00eaff, #0077ff);
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+/* glow border */
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #00eaff, #0077ff, #00eaff);
+    filter: blur(10px);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.btn:hover::before {
+    opacity: 1;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* ========================= */
+/* 🔥 CARDS (GLASS PRO) */
+/* ========================= */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 15px;
+    transition: 0.4s;
+    position: relative;
+}
+
+/* glow border */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    border: 1px solid rgba(0,234,255,0.2);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,234,255,0.2);
+}
+
+/* ========================= */
+/* 🔥 GALLERY */
+/* ========================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0,234,255,0.4);
+}
+
+/* ========================= */
+/* 🔥 REVIEWS */
+/* ========================= */
+.review-wrapper {
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.review-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollReviews 30s linear infinite;
+}
+
+.review-card {
+    min-width: 300px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(0,234,255,0.2);
+}
+
+@keyframes scrollReviews {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.review-track:hover {
+    animation-play-state: paused;
+}
+
+/* ========================= */
+/* 🔥 SCROLL ANIMATIONS */
+/* ========================= */
+.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.slide-left { transform: translateX(-80px); }
+.slide-right { transform: translateX(80px); }
+
+.show {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* ========================= */
+/* 🔥 FOOTER */
+/* ========================= */
+footer {
+    background: #111;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+
+    .glow-text {
+        font-size: 32px;
+    }
+
+    nav a {
+        margin: 8px;
+        font-size: 13px;
+    }
+
+    header {
+        padding: 120px 10px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .gallery img {
+        height: 200px;
+    }
+}
+/* ========================= */
+/* 🌌 PREMIUM PARTICLES */
+/* ========================= */
+
+#particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* different particle sizes */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: #00eaff;
+    opacity: 0.4;
+    filter: blur(1px);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(-10vh);
+    }
+}
+/* ========================= */
+/* 🔥 CURSOR GLOW */
+/* ========================= */
+
+.cursor-glow {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(0,234,255,0.35), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    mix-blend-mode: screen;
+    transition: transform 0.08s linear;
+}
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+
+    z-index: 9999;
+}
+
+.popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 700px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+/* ========================= */
+/* 📱 MOBILE FIX */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 8px;
+        font-size: 13px;
+    }
+
+    /* HEADER */
+    .glow-text {
+        font-size: 30px;
+    }
+
+    header {
+        padding: 120px 10px;
+    }
+
+    /* ABOUT */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    /* CARDS */
+    .card {
+        padding: 18px;
+    }
+
+    /* POPUP */
+    .popup-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    /* BUTTON */
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
